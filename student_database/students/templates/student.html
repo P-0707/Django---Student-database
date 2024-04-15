@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Student details {% endblock %}
+{% block content %}
+
+<div class="student page">
+    <h1 style="text-align: center; color: #333333; margin: 20px;">Student Details</h1>
+    <div class="data">
+        <h3 class="s"> Student ID: {{ student.student_id }} </h3>
+        <p> First Name : {{ student.first_name }} </p>
+        <p> Last Name : {{ student.last_name }} </p>
+        <p> email_id : {{ student.email_id }} </p>
+        <p> Phone Number : {{ student.phone_number }} </p>
+        <p> Gender : {{ student.student_gender }} </p>
+        <p> DOB : {{ student.date_of_birth }} </p>
+        <p> Address : {{ student.student_address }} </p>
+        <p> Deptartment : {{ student.student_dept }} </p>
+        <p> Courses :
+            <ol>
+                {% for course in student.enrolled_courses.all %}
+                <li><a href="{% url 'course_details' course.course_id %}">{{ course.course_name }}</a></li>
+                {% endfor %}
+            </ol>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

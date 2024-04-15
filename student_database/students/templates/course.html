@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Course details {% endblock %}
+{% block content %}
+
+<div class="course-page">
+    <h1 style="text-align: center; color: #333333; margin: 20px;"> Course Details </h1>
+    <div class="course-data">
+        {% if course %}
+            <h3 style="font-size: 36px; color: #555555;"> Course : {{ course.course_name }}</h3>
+            <p> Course ID : {{ course.course_id }}</p>
+            <p> Description : {{ course.course_description }}</p>
+            <p> Instructor ID :
+                <a href="{% url 'instructor' instructor.instructor_id %}"> {{instructor.instructor_id}} </a>
+            </p>
+        {% else %}
+            <p> No course found. </p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

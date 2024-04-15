@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} Instructor details {% endblock %}
+{% block content %}
+
+<div class="instructor-page">
+    <h1 style="text-align: center; color: #333333; margin: 20px;"> Instructor Details </h1>
+    <div class="instructor-data">
+        {% if instructor %}
+            <h3 class="s"> Instructor : {{ instructor.instructor_name }}</h3>
+            <p> Instructor ID : {{ instructor.instructor_id }} </p>
+            <p> Instructor email_id : {{ instructor.instructor_email }} </p>
+            <p> Instructor Department : {{ instructor.instructor_dept }}  </p>
+        {% else %}
+            <p> No instructor found. </p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
